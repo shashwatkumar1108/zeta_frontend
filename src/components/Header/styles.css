@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+.header {
+    background-color: rgb(136, 0, 136);  
+}
+
+.title {
+    font-size: 1.5rem;
+    font-family: 'Oswald', sans-serif;
+    color: whitesmoke;
+}
