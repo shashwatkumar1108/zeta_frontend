@@ -1,0 +1,31 @@
+.card {
+    border: 1px solid grey;
+    border-radius: 15px;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.image {
+    padding: 10px;
+}
+
+.information-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.personal-information {
+    margin: 15px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+.loan-details {
+    margin: 15px;
+    border: 1px solid black;
+    display: flex;
+    align-items: space-between;
+    justify-content: space-between;
+}
