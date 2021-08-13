@@ -1,55 +1,46 @@
 import axios from "axios";
+import React from 'react';
 
   const endpoint = "https://morning-earth-97573.herokuapp.com";
 
-  export const userAdd = (payload) => {
-    axios
-      .post(endpoint + "/users/add", payload)
-      .then((res) => {
+  export const userAdd = async (payload) => {
+    try {
+        const res = await axios.post(endpoint + "/users/add", payload);
         return res;
-      })
-      .catch((err) => {
+    } catch (err) {
         return err;
-      });
+    }
   }
-    export const loanRequestAdd = (payload) => {
-      axios
-        .post(endpoint + "/loans/request", payload)
-        .then((res) => {
-          return res;
-        })
-        .catch((err) => {
-          return err;
-        });
+    export const loanRequestAdd = async (payload) => {
+        try {
+            const res = await axios.post(endpoint + "/loans/request", payload);
+            return res;
+        } catch (err) {
+            return err;
+        }
     }
   
-    export const publicBorrowRequestAdd = (payload) => {
-      axios
-        .post(endpoint + "/public/borrowrequest/add", payload)
-        .then((res) => {
-          return res;
-        })
-        .catch((err) => {
-          return err;
-        });
+    export const publicBorrowRequestAdd = async (payload) => {
+        try {
+            const res = await axios.post(endpoint + "/public/borrowrequest/add", payload);
+            return res;
+        } catch (err) {
+            return err;
+        }
     }
-    export const publicBorrowRequestDelete = (payload) => {
-      axios
-        .delete(endpoint + "/public/borrowrequest/delete", payload)
-        .then((res) => {
-          return res;
-        })
-        .catch((err) => {
-          return err;
-        });
+    export const publicBorrowRequestDelete = async (payload) => {
+        try {
+            const res = await axios.post(endpoint + "/public/borrowrequest/delete", payload);
+            return res;
+        } catch (err) {
+            return err;
+        }
     }
-    export const publicBorrowRequestList = () => {
-      axios
-        .get(endpoint + "/public/borrowrequest/list")
-        .then((res) => {
-          return res;
-        })
-        .catch((err) => {
-          return err;
-        });
+    export const publicBorrowRequestList = async () => {
+        try {
+            const res = await axios.get(endpoint + "/public/borrowrequest/list");
+            return res;
+        } catch (err) {
+            return err;
+        }
     };

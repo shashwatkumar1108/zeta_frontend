@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import {
   Form,
   Col,
@@ -7,6 +8,7 @@ import {
   Button,
   ButtonGroup,
 } from "react-bootstrap";
+import { publicBorrowRequestAdd } from "../../core/api";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 
@@ -16,6 +18,7 @@ const GetALoan = () => {
   const [amount, setAmount] = useState(0);
   const [date, setDate] = useState("");
   const [purpose, setPurpose] = useState("");
+  const [id, setId] = useState("");
   const [isPrivate, setIsPrivate] = useState(false);
   const [requestFrom, setRequestFrom] = useState("");
 
@@ -25,20 +28,20 @@ const GetALoan = () => {
   }, [principal, interest]);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     const presentDate = new Date();
     const duration = Math.floor(
       (new Date(date).getTime() - presentDate.getTime()) / (1000 * 3600 * 24)
     );
     const payload = {
-      amount: principal,
-      interest: interest,
-      repayment_date: date,
-      payment_duration: duration,
-      created_at: presentDate,
+      userId: id,
+      amount: principal.toString(10),
+      interestRate: interest.toString(10),
+      duration: duration.toString(10),
       purpose: purpose,
     };
-    console.log(payload);
+    publicBorrowRequestAdd(payload)
+    .then(res => alert("Successfully submitted"))
+    .catch(err => console.log(err));
   };
 
   let FromField;
@@ -65,6 +68,18 @@ const GetALoan = () => {
     <Container>
       <h1 className="heading">Apply for a Loan</h1>
       <Form>
+        <Form.Group as={Row} className="mb-3">
+          <Form.Label column sm="2">
+            User Id
+          </Form.Label>
+          <Col sm="10">
+            <Form.Control
+              type="text"
+              placeholder="User ID"
+              onChange={(e) => setId(e.target.value)}
+            />
+          </Col>
+        </Form.Group>
         <Form.Group as={Row} className="mb-3">
           <Form.Label column sm="2">
             Amount

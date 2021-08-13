@@ -23,12 +23,6 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link
-              to="/lendingRequest"
-              style={{ color: "white", marginRight: 15 }}
-            >
-              Lending Request
-            </Link>
             <Link to="/loanRequest" style={{ color: "white", marginRight: 15 }}>
               Loan Request
             </Link>
