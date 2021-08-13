@@ -36,9 +36,6 @@ const Header = () => {
               Give Loan
             </Link>
           </Nav>
-          <Nav>
-            <Nav.Link style={{ color: "white" }}>Logout</Nav.Link>
-          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
